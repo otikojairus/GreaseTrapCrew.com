@@ -79,7 +79,7 @@ export function HomeStitchView({
         </div>
       </section>
 
-      <section className="w-full bg-surface-container-low py-space-xl" id="services">
+      <section className="w-full stitch-section-mesh py-space-xl" id="services">
         <div className="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
           <StitchSectionHeading
             eyebrow="What we do"
@@ -93,7 +93,7 @@ export function HomeStitchView({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow border border-outline-variant/10"
+                  className="stitch-card-lift p-space-lg rounded-xl bg-surface-container-lowest/95 shadow-sm flex flex-col justify-between hover:shadow-lg border border-outline-variant/10 backdrop-blur-sm"
                 >
                   <div className="flex flex-col gap-space-sm">
                     <div

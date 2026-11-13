@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
   icons: {
-    icon: [{ url: "/greasetrap-mark.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/greasetrap-mark.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
 };
 

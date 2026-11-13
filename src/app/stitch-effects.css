@@ -1,0 +1,198 @@
+/* Decorative motion — respects prefers-reduced-motion */
+
+@keyframes stitch-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stitch-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes stitch-orb-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-4%, 6%) scale(1.08);
+  }
+}
+
+@keyframes stitch-orb-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6%, -5%) scale(1.05);
+  }
+}
+
+@keyframes stitch-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes stitch-grid-pan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(32px);
+  }
+}
+
+@layer utilities {
+  .stitch-animate-in {
+    animation: stitch-fade-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .stitch-animate-in-slow {
+    animation: stitch-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .stitch-animate-fade {
+    animation: stitch-fade-in 0.9s ease both;
+  }
+
+  .stitch-delay-1 {
+    animation-delay: 0.06s;
+  }
+  .stitch-delay-2 {
+    animation-delay: 0.14s;
+  }
+  .stitch-delay-3 {
+    animation-delay: 0.22s;
+  }
+  .stitch-delay-4 {
+    animation-delay: 0.3s;
+  }
+  .stitch-delay-5 {
+    animation-delay: 0.38s;
+  }
+  .stitch-delay-6 {
+    animation-delay: 0.46s;
+  }
+
+  .stitch-hero-shell {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(84, 253, 196, 0.14), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 10%, rgba(186, 199, 225, 0.35), transparent 50%),
+      linear-gradient(165deg, #eff4ff 0%, #f8f9ff 45%, #e5eeff 100%);
+  }
+
+  .stitch-hero-grid {
+    background-image:
+      linear-gradient(rgba(11, 28, 48, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 28, 48, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    animation: stitch-grid-pan 24s linear infinite;
+  }
+
+  .stitch-hero-orb-a {
+    animation: stitch-orb-drift-a 18s ease-in-out infinite;
+  }
+
+  .stitch-hero-orb-b {
+    animation: stitch-orb-drift-b 22s ease-in-out infinite;
+  }
+
+  .stitch-hero-image-glow {
+    box-shadow: 0 24px 48px rgba(0, 108, 79, 0.14);
+    background: linear-gradient(
+      120deg,
+      rgba(0, 108, 79, 0.7),
+      rgba(84, 253, 196, 0.55),
+      rgba(220, 233, 255, 0.95),
+      rgba(0, 108, 79, 0.7)
+    );
+    background-size: 300% 300%;
+    animation: stitch-gradient-shift 10s ease infinite;
+  }
+
+  .stitch-section-mesh {
+    background:
+      radial-gradient(circle at 20% 80%, rgba(0, 108, 79, 0.06), transparent 45%),
+      radial-gradient(circle at 80% 20%, rgba(211, 228, 254, 0.5), transparent 40%),
+      #eff4ff;
+  }
+
+  .stitch-cta-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .stitch-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(84, 253, 196, 0.18), transparent 55%);
+    pointer-events: none;
+  }
+
+  .stitch-cta-card::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -80px;
+    bottom: -120px;
+    border-radius: 50%;
+    background: rgba(119, 132, 156, 0.12);
+    filter: blur(40px);
+    animation: stitch-orb-drift-b 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .stitch-cta-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .stitch-card-lift {
+    transition:
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s ease;
+  }
+
+  .stitch-card-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stitch-animate-in,
+  .stitch-animate-in-slow,
+  .stitch-animate-fade,
+  .stitch-hero-grid,
+  .stitch-hero-orb-a,
+  .stitch-hero-orb-b,
+  .stitch-hero-image-glow,
+  .stitch-cta-card::after {
+    animation: none !important;
+  }
+
+  .stitch-card-lift:hover {
+    transform: none;
+  }
+}

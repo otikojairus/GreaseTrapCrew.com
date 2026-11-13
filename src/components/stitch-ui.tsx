@@ -93,34 +93,47 @@ export function StitchHero({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="relative w-full bg-surface-container-lowest pt-space-xl pb-space-xl lg:pb-20">
-      <div className="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+    <section className="relative w-full overflow-hidden stitch-hero-shell pt-space-xl pb-space-xl lg:pb-20">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="stitch-hero-grid absolute inset-0 opacity-50" />
+        <div className="stitch-hero-orb-a absolute -top-28 right-[5%] h-72 w-72 rounded-full bg-secondary/25 blur-3xl md:h-96 md:w-96" />
+        <div className="stitch-hero-orb-b absolute -bottom-32 left-[-10%] h-80 w-80 rounded-full bg-primary-fixed/40 blur-3xl md:left-[15%]" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface-container-lowest/80 to-transparent" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-margin-mobile lg:px-margin">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
           <div className="lg:col-span-7 flex flex-col gap-space-md">
-            {breadcrumbs ? <StitchBreadcrumbs items={breadcrumbs} /> : null}
-            <div className="inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-code text-label-code tracking-wider uppercase">
+            {breadcrumbs ? (
+              <div className="stitch-animate-in stitch-delay-1">
+                <StitchBreadcrumbs items={breadcrumbs} />
+              </div>
+            ) : null}
+            <div className="stitch-animate-in stitch-delay-2 inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded bg-surface-container/90 text-on-surface font-label-code text-label-code tracking-wider uppercase backdrop-blur-sm border border-outline-variant/15 shadow-sm">
               <span className="material-symbols-outlined text-secondary text-[16px]">verified</span>
               {eyebrow}
             </div>
-            <h1 className="font-headline-lg lg:font-display-hero text-headline-lg lg:text-display-hero text-primary tracking-tight leading-[1.08]">
+            <h1 className="stitch-animate-in stitch-delay-3 font-headline-lg lg:font-display-hero text-headline-lg lg:text-display-hero text-primary tracking-tight leading-[1.08]">
               {title}
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">{intro}</p>
+            <p className="stitch-animate-in stitch-delay-4 font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              {intro}
+            </p>
             {chips && chips.length > 0 ? (
               <div className="flex flex-wrap gap-space-xs">
-                {chips.map((chip) => (
+                {chips.map((chip, index) => (
                   <span
                     key={chip}
-                    className="px-space-sm py-1 rounded-lg bg-surface-container-low font-label-md text-label-md text-on-surface"
+                    className="stitch-animate-in px-space-sm py-1 rounded-lg bg-surface-container-low/90 font-label-md text-label-md text-on-surface backdrop-blur-sm border border-outline-variant/10"
+                    style={{ animationDelay: `${0.24 + index * 0.07}s` }}
                   >
                     {chip}
                   </span>
                 ))}
               </div>
             ) : null}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md pt-space-xs">
+            <div className="stitch-animate-in stitch-delay-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md pt-space-xs">
               <a
-                className="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-secondary text-white font-label-lg text-label-lg font-semibold hover:bg-on-secondary-container hover:text-white transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-secondary text-white font-label-lg text-label-lg font-semibold hover:bg-on-secondary-container hover:text-white transition-all shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.99]"
                 href={PHONE_LINK}
               >
                 <span className="material-symbols-outlined text-[20px]">call</span>
@@ -137,16 +150,18 @@ export function StitchHero({
               ) : null}
             </div>
           </div>
-          <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-            <div className="relative w-full min-h-[280px] rounded-xl overflow-hidden bg-surface-container-high shadow-xl aspect-[4/3] lg:aspect-auto lg:h-[420px]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
+          <div className="lg:col-span-5 relative mt-6 lg:mt-0 stitch-animate-in-slow stitch-delay-4">
+            <div className="stitch-hero-image-glow relative z-0 w-full rounded-xl p-[3px]">
+              <div className="relative min-h-[280px] w-full overflow-hidden rounded-[9px] bg-surface-container-high aspect-[4/3] lg:aspect-auto lg:h-[420px]">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.03]"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -352,7 +367,7 @@ export function StitchPhoneCta({
   return (
     <section className="w-full bg-surface py-space-xl" id="contact">
       <div className="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
-        <div className="p-space-xl rounded-xl bg-primary-container text-on-primary flex flex-col md:flex-row items-center justify-between gap-space-lg">
+        <div className="stitch-cta-card stitch-animate-fade p-space-xl rounded-xl bg-primary-container text-on-primary flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-lg">
           <div className="max-w-xl">
             <span className="font-label-code text-label-code uppercase tracking-wider text-secondary-fixed">Ready to book</span>
             <h2 className="font-headline-lg text-headline-lg text-surface-lowest mt-1">{title}</h2>

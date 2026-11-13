@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
+@import "./stitch-effects.css";
 
 @layer base {
   .material-symbols-outlined {

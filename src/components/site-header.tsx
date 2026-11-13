@@ -1,32 +1,27 @@
-import Image from "next/image";
 import Link from "next/link";
-import { SiteNav } from "@/components/site-nav";
+import { BrandIcon } from "@/components/brand-icon";
+import { SiteNavDesktop, SiteNavMobile } from "@/components/site-nav";
 import { PHONE_LINK, PHONE_NUMBER, SITE_NAME } from "@/lib/greasetrap";
 
 export function SiteHeader() {
   return (
     <header className="fixed top-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-      <div className="h-20 w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter">
-        <Link href="/" className="flex items-center gap-space-md shrink-0" aria-label={`${SITE_NAME} home`}>
-          <Image
-            src="/greasetrap-mark.svg"
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8 object-contain"
-            priority
-          />
-          <div className="flex flex-col">
-            <span className="font-headline-sm text-headline-sm text-primary tracking-tight">{SITE_NAME}</span>
-            <span className="font-label-code text-label-code uppercase tracking-wider text-secondary">
+      <div className="relative h-20 w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center gap-space-md">
+        <Link href="/" className="flex items-center gap-space-md shrink-0 min-w-0" aria-label={`${SITE_NAME} home`}>
+          <BrandIcon />
+          <div className="flex flex-col min-w-0">
+            <span className="font-headline-sm text-headline-sm text-primary tracking-tight truncate">{SITE_NAME}</span>
+            <span className="font-label-code text-label-code uppercase tracking-wider text-secondary hidden min-[400px]:block">
               Canada commercial kitchens
             </span>
           </div>
         </Link>
 
-        <SiteNav />
+        <div className="hidden xl:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <SiteNavDesktop />
+        </div>
 
-        <div className="flex items-center gap-space-md shrink-0">
+        <div className="flex items-center gap-space-md shrink-0 ml-auto">
           <a
             className="hidden sm:flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest transition-colors"
             href={PHONE_LINK}
@@ -46,6 +41,7 @@ export function SiteHeader() {
           >
             Call now
           </a>
+          <SiteNavMobile />
         </div>
       </div>
     </header>

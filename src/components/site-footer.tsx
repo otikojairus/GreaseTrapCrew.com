@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandIcon } from "@/components/brand-icon";
 import { getAllPillarLinks } from "@/lib/links";
 import { PHONE_LINK, PHONE_NUMBER, SITE_DESCRIPTION, SITE_NAME } from "@/lib/greasetrap";
 
@@ -19,9 +20,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter pb-space-xl">
           <div className="lg:col-span-4 flex flex-col gap-space-md">
             <div className="flex items-center gap-space-sm">
-              <div className="h-8 w-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary">
-                <span className="material-symbols-outlined text-[20px]">plumbing</span>
-              </div>
+              <BrandIcon />
               <span className="font-headline-sm text-headline-sm text-surface-lowest">{SITE_NAME}</span>
             </div>
             <p className="font-body-md text-body-md text-on-primary-container max-w-sm">{SITE_DESCRIPTION}</p>

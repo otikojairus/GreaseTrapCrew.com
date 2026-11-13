@@ -13,7 +13,23 @@ const navLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
-export function SiteNav() {
+export function SiteNavDesktop() {
+  return (
+    <nav className="flex items-center gap-space-md" aria-label="Primary">
+      {navLinks.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+export function SiteNavMobile() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
@@ -36,11 +52,7 @@ export function SiteNav() {
   const mobileMenu =
     open && mounted ? (
       <div id="mobile-nav" className="fixed inset-0 z-[200] xl:hidden" role="dialog" aria-modal="true">
-        <div
-          className="absolute inset-0 bg-black/55"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-black/55" onClick={() => setOpen(false)} aria-hidden="true" />
         <div className="absolute top-0 right-0 flex h-full w-[min(100%,20rem)] flex-col gap-space-sm border-l border-outline-variant/40 bg-white p-space-lg shadow-2xl">
           <div className="flex items-center justify-between gap-space-sm pb-space-sm border-b border-outline-variant/30">
             <p className="font-label-code text-label-code uppercase text-secondary tracking-wider">Menu</p>
@@ -75,21 +87,9 @@ export function SiteNav() {
 
   return (
     <>
-      <nav className="hidden xl:flex items-center gap-space-md" aria-label="Primary">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="px-space-sm py-space-xs font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-
       <button
         type="button"
-        className="xl:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container"
+        className="xl:hidden w-10 h-10 flex shrink-0 items-center justify-center rounded-lg bg-surface-container"
         aria-expanded={open}
         aria-controls="mobile-nav"
         onClick={() => setOpen((v) => !v)}
@@ -97,7 +97,6 @@ export function SiteNav() {
         <span className="material-symbols-outlined text-on-surface">{open ? "close" : "menu"}</span>
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
       </button>
-
       {mounted && mobileMenu ? createPortal(mobileMenu, document.body) : null}
     </>
   );
