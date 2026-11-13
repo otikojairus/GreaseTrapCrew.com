@@ -14,7 +14,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-primary-container text-on-surface-variant pt-space-xl pb-space-lg">
+    <footer className="w-full bg-primary-container text-on-surface-variant pt-space-xl pb-[calc(5.75rem+1.5rem)] md:pb-space-lg">
       <div className="w-full max-w-7xl mx-auto px-margin-mobile lg:px-margin">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter pb-space-xl">
           <div className="lg:col-span-4 flex flex-col gap-space-md">

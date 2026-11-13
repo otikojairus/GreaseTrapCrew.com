@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { MobileCallBar } from "@/components/mobile-call-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SITE_DESCRIPTION, SITE_NAME, getSiteUrl } from "@/lib/greasetrap";
@@ -60,8 +61,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       >
         <JsonLd data={[organizationJsonLd(), webSiteJsonLd()]} />
         <SiteHeader />
-        <main className="w-full pt-20">{children}</main>
+        <main className="w-full pt-20 pb-[5.75rem] md:pb-0">{children}</main>
         <SiteFooter />
+        <MobileCallBar />
       </body>
     </html>
   );
