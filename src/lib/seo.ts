@@ -64,7 +64,7 @@ export function buildHomeMetaTitle(): string {
 
 export function buildHomeMetaDescription(): string {
   return truncate(
-    "Commercial grease trap and interceptor cleaning, pumping, maintenance, and emergency overflow service for restaurants and kitchens across Canada. Call 1-888-473-2737.",
+    "Commercial grease trap and interceptor cleaning, pumping, maintenance, and emergency overflow service for restaurants and kitchens across Canada. Call 1-888-914-2367.",
     160,
   );
 }

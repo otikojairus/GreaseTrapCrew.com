@@ -7,7 +7,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SITE_DESCRIPTION, SITE_NAME, getSiteUrl } from "@/lib/greasetrap";
 import { organizationJsonLd, webSiteJsonLd } from "@/lib/structured-data";
 import "./globals.css";
+import { GoogleTagManager } from "@/components/google-tag-manager";
 import { JsonLd } from "@/components/json-ld";
+import { RetreaverScript } from "@/components/retreaver-script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +66,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <main className="w-full pt-20 pb-[5.75rem] md:pb-0">{children}</main>
         <SiteFooter />
         <MobileCallBar />
+        <RetreaverScript />
+        <GoogleTagManager />
       </body>
     </html>
   );

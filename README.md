@@ -53,4 +53,4 @@ Copy `BITRIX_MIDDLEWARE_URL` and `WEBSITE_INTAKE_SECRET` from proofresponse-main
 
 ## Phone / CTA
 
-Default click-to-call: **1-888-473-2737** (`src/lib/greasetrap.ts`). Update there and re-run `generate-pages.py` if you change the script default CTA string.
+Default click-to-call: **1-888-914-2367** (`src/lib/greasetrap.ts`). Retreaver DNI (`61bb5feaf11dced8a51529c3fa06c6ff`) and GTM `GTM-KWWBLPP2` load from `src/app/layout.tsx`. Update phone there and re-run `generate-pages.py` if you change the workbook CTA string.

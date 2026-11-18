@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 XLSX = Path("/Users/jairusotiko/Downloads/pSEO - Canada Grease Trap.xlsx")
 PAGES_OUT = ROOT / "src" / "data" / "greasetrap-pages.json"
 SECTIONS_OUT = ROOT / "src" / "data" / "greasetrap-sections.json"
-PHONE = "1-888-473-2737"
+PHONE = "1-888-914-2367"
 CTA = f"Click-to-Call {PHONE}"
 
 

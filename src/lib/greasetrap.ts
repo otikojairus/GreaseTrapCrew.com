@@ -7,7 +7,7 @@ export type SectionEntry = (typeof sectionsData)[number];
 export const SITE_NAME = "Grease Trap Crew";
 export const SITE_DESCRIPTION =
   "Commercial grease trap and interceptor cleaning, pumping, maintenance, and emergency service for restaurants and kitchens across Canada.";
-export const PHONE_NUMBER = "1-888-473-2737";
+export const PHONE_NUMBER = "1-888-914-2367";
 export const PHONE_LINK = `tel:${PHONE_NUMBER.replace(/[^0-9+]/g, "")}`;
 export const DEFAULT_SITE_URL = "https://greasetrapcrew.com";
 
