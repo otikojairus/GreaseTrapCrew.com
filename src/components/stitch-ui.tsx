@@ -386,6 +386,44 @@ export function StitchPhoneCta({
   );
 }
 
+export function StitchContactSection({
+  title = "Call or request a quick callback",
+  description = "For active overflow, call now. For scheduled cleaning, use the short form — we'll confirm scope and timing.",
+  form,
+}: {
+  title?: string;
+  description?: string;
+  form: ReactNode;
+}) {
+  return (
+    <section className="w-full bg-surface py-space-xl" id="contact">
+      <div className="max-w-7xl mx-auto px-margin-mobile lg:px-margin">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
+          <div className="stitch-cta-card p-space-xl rounded-xl bg-primary-container text-on-primary shadow-lg">
+            <span className="font-label-code text-label-code uppercase tracking-wider text-secondary-fixed">Phone first</span>
+            <h2 className="font-headline-lg text-headline-lg text-surface-lowest mt-1">{title}</h2>
+            <p className="font-body-md text-body-md text-on-primary-container mt-2">{description}</p>
+            <a
+              href={PHONE_LINK}
+              className="mt-space-lg inline-flex items-center justify-center gap-2 px-space-xl py-3.5 rounded-lg bg-secondary text-white font-label-lg font-semibold hover:opacity-95 transition-opacity w-full sm:w-auto"
+            >
+              <span className="material-symbols-outlined">call</span>
+              {PHONE_NUMBER}
+            </a>
+          </div>
+          <div className="p-space-xl rounded-xl bg-surface-container-low border border-outline-variant/20 shadow-sm">
+            <h3 className="font-headline-sm text-headline-sm text-primary font-semibold">Request callback</h3>
+            <p className="font-body-sm text-body-sm text-on-surface-variant mt-1 mb-space-md">
+              Location, issue type, and urgency — optional business name only.
+            </p>
+            {form}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function StitchKeywordPills({ keywords }: { keywords: string[] }) {
   if (!keywords.length) return null;
   return (

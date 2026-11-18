@@ -99,10 +99,10 @@ export function buildHeroStats() {
   const cityMarkets = countCityMarkets();
 
   return [
-    { value: "24/7", label: "Emergency dispatch" },
     { value: `${cityMarkets}+`, label: "Cities across Canada" },
     { value: "Licensed", label: "Pump & waste crews" },
-    { value: "Same-day", label: "Urgent visit windows" },
+    { value: "Same-week", label: "Scheduled cleaning" },
+    { value: "Priority", label: "Overflow response" },
   ];
 }
 

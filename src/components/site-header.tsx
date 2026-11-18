@@ -31,7 +31,7 @@ export function SiteHeader() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-error" />
             </span>
             <div className="flex flex-col text-left">
-              <span className="font-label-code text-label-code text-error uppercase">24/7 dispatch</span>
+              <span className="font-label-code text-label-code text-error uppercase">Call for service</span>
               <span className="font-label-md text-label-md text-on-surface font-semibold">{PHONE_NUMBER}</span>
             </div>
           </a>

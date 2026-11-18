@@ -9,7 +9,7 @@ import {
   StitchFaqSection,
   StitchHero,
   StitchKeywordPills,
-  StitchPhoneCta,
+  StitchContactSection,
   StitchProcessSteps,
   StitchRelatedGroups,
   StitchSectionHeading,
@@ -35,6 +35,13 @@ import {
 } from "@/lib/greasetrap";
 import { buildBodySections, buildFaqs, buildIntro, getPageH1 } from "@/lib/page-content";
 import { LOCAL_IMAGES, getHeroImage, getSecondaryImage } from "@/lib/images";
+import { ServiceRequestForm } from "@/components/service-request-form";
+import { getCityDisplayName } from "@/lib/cities";
+import {
+  defaultIssueTypeForPage,
+  defaultUrgencyForPage,
+  isEmergencyPage,
+} from "@/lib/page-intent";
 import { buildMetaDescription, buildMetaTitle } from "@/lib/seo";
 import {
   breadcrumbJsonLd,
@@ -117,7 +124,17 @@ export default async function GreaseTrapSlugPage({ params }: SlugPageProps) {
   if (localBusiness) schemaItems.push(localBusiness);
   if (faqSchema) schemaItems.push(faqSchema);
 
-  const chips = ["Licensed crews", "Same-week dispatch", "Service records on file"];
+  const emergency = isEmergencyPage(page);
+  const chips = emergency
+    ? ["Priority overflow line", "Pump & restore flow", "Kitchen shutdown help"]
+    : ["Licensed pump crews", "Same-week scheduling", "Pump records on file"];
+
+  const contactTitle = emergency
+    ? "Active backup or overflow? Call first"
+    : "Schedule cleaning or pumping";
+  const contactDescription = emergency
+    ? `Tell us ${page.targetArea} and what the line is doing — we triage overflow and backup before routine scheduling. Call ${PHONE_NUMBER} now or send a short callback request.`
+    : `For ${getCityDisplayName(page.targetArea)} — tell us your kitchen type and preferred window. We confirm scope before dispatch. Call ${PHONE_NUMBER} or use the form.`;
 
   return (
     <>
@@ -188,9 +205,20 @@ export default async function GreaseTrapSlugPage({ params }: SlugPageProps) {
         <StitchCityGrid links={cityLinks} />
         <StitchFaqSection faqs={faqs} />
         <StitchRelatedGroups groups={relatedGroups} />
-        <StitchEmergencyBand />
-        <StitchPhoneCta
-          description={`Tell us your kitchen type and location (${page.targetArea}) — we confirm scope and the next available window. Call ${PHONE_NUMBER}.`}
+        {emergency ? <StitchEmergencyBand /> : null}
+        <StitchContactSection
+          title={contactTitle}
+          description={contactDescription}
+          form={
+            <ServiceRequestForm
+              pageSlug={page.slug}
+              pageType={page.pageType}
+              primaryKeyword={page.primaryKeyword}
+              defaultIssueType={defaultIssueTypeForPage(page)}
+              defaultUrgency={defaultUrgencyForPage(page)}
+              defaultLocation={getCityDisplayName(page.targetArea)}
+            />
+          }
         />
       </StitchShell>
     </>

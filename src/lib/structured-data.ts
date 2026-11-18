@@ -1,4 +1,4 @@
-import { getSiteUrl, PHONE_NUMBER } from "@/lib/greasetrap";
+import { getSiteUrl, PHONE_NUMBER, SITE_NAME } from "@/lib/greasetrap";
 
 export type FaqItem = {
   question: string;
@@ -11,7 +11,7 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "TrapGuard Commercial",
+    name: SITE_NAME,
     url: siteUrl,
     telephone: PHONE_NUMBER,
     areaServed: {
@@ -27,7 +27,7 @@ export function webSiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "TrapGuard Commercial",
+    name: SITE_NAME,
     url: siteUrl,
   };
 }
@@ -59,12 +59,13 @@ export function serviceJsonLd(page: any) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Grease Trap Cleaning Service",
-    description: "Certified commercial grease trap pumping, high-pressure hydro-jetting, and automated electronic manifest filing.",
+    name: page.primaryKeyword || page.title,
+    description:
+      "Commercial grease trap and interceptor cleaning, pumping, maintenance, and overflow support for kitchens across Canada.",
     url,
     provider: {
       "@type": "Organization",
-      name: "TrapGuard Commercial",
+      name: SITE_NAME,
       url: siteUrl,
       telephone: PHONE_NUMBER,
     },
@@ -82,10 +83,11 @@ export function localBusinessJsonLd(page: any) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "TrapGuard Commercial",
+    name: SITE_NAME,
     url,
     telephone: PHONE_NUMBER,
-    description: "Certified commercial grease trap pumping, high-pressure hydro-jetting, and automated electronic manifest filing.",
+    description:
+      "Commercial grease trap and interceptor cleaning, pumping, maintenance, and overflow support for kitchens across Canada.",
     areaServed: {
       "@type": "Country",
       name: "Canada",

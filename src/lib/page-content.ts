@@ -77,22 +77,22 @@ export function buildIntro(page: PageEntry): string {
   const cityName = getCityDisplayName(page.targetArea);
 
   const nationalIntros = [
-    `When an inspector walks your building, you want proof that every ${family} requirement is handled — not a scramble to find missing tags or outdated records. Our technicians visit commercial, industrial, and multi-residential properties across Canada with the tools, certifications, and documentation to keep you compliant. You get a clear schedule, a technician who explains what they found, and a report you can file without second-guessing. Whether you manage one site or a portfolio, we make the process predictable so you can focus on tenants and operations instead of fire-code paperwork.`,
-    `Building owners call us when they need ${family} work done right the first time — before a failed inspection creates downtime, fines, or insurance headaches. We coordinate visits around your operating hours, tag and test equipment to current standards, and leave you with records that satisfy auditors and insurers alike. From walk-through to signed report, every step is explained in plain language. No jargon-filled invoices, no surprise callbacks — just thorough work from technicians who understand Canadian fire codes and respect your timeline.`,
-    `Your occupants depend on systems that work when it matters. That is why we treat every ${family} visit as more than a checkbox: we inspect, test, document, and flag anything that needs attention before it becomes an emergency. Property managers appreciate our consistent scheduling, superintendents appreciate clear communication on-site, and owners appreciate reports they can hand to inspectors without editing. Serving buildings nationwide, we bring the same professionalism whether you operate a single retail plaza or a cross-country portfolio.`,
+    `Grease slows drains long before anyone smells it in the dining room. Our crews handle ${family} across Canada — pumping interceptors, scraping buildup, and documenting volumes so health inspections and landlords see a clear service history. You pick a window that fits prep and service hours; we confirm trap access, pump out, and leave pump records you can file the same week.`,
+    `Kitchen managers call us when ${family} cannot wait for a vague callback. We separate urgent overflow from planned maintenance: backups get triaged first, while routine cleaning stays on a predictable schedule. Technicians explain what they found at the trap, what was removed, and when the next visit makes sense — without making you chase paperwork after the truck leaves.`,
+    `Whether you run one restaurant or a portfolio of kitchens, the goal is the same: interceptors that flow, hoods that stay productive, and documentation that stands up to review. We coordinate ${family} coast to coast with licensed pump crews, sanitary waste handling, and notes your team can share with insurers or property owners.`,
   ];
 
   const cityIntros = (profile: CityProfile) => [
-    `Property teams in ${profile.name} juggle aging infrastructure, busy tenants, and inspections that do not wait for convenient timing. Near ${profile.landmark} and across ${profile.neighbourhood}, we help building owners stay ahead of requirements with on-site visits, clear tagging, and documentation ready for your next audit. With ${profile.population} and ${profile.climate}, equipment faces real wear — our technicians know what local conditions demand and explain findings in plain language so you can act fast.`,
-    `From ${profile.neighbourhood} to the corridors around ${profile.landmark}, ${profile.name} buildings need ${family} support that respects tight schedules and strict codes. We schedule around your hours, test on-site, and deliver reports you can file the same week. ${profile.name}'s ${profile.climate} affects how equipment ages; we factor that into every visit so you are not caught off guard when an inspector arrives.`,
-    `Managing a site in ${profile.name} means balancing ${profile.population}, variable weather, and the expectations of tenants who need the building open for business. Our local technicians serve ${profile.neighbourhood} and surrounding districts with the same rigour we bring nationwide — thorough inspections, honest recommendations, and records that stand up to review. You speak with a real coordinator, get a confirmed window, and know exactly what was checked before we leave.`,
+    `Kitchens in ${profile.name} — from spots near ${profile.landmark} through ${profile.neighbourhood} — depend on traps that keep up with fry volume and long service hours. We schedule ${family} around your prep line, pump and clean on site, and leave records ready for health or property review. ${profile.climate} affects how fast grease solidifies in lines; we factor that into timing and follow-up intervals.`,
+    `Operators around ${profile.landmark} call when traps back up or when the calendar shows overdue maintenance. Our ${profile.name} crews confirm access, vacuum waste safely, and note trap condition in plain language. You get a confirmed visit window and pump documentation you can share with landlords or inspectors the same week.`,
+    `Whether you manage a single ${profile.name} location or several sites in the region, you need ${family} that respects ${profile.population} traffic and tight shutdown windows. We coordinate local pump trucks, explain scope before dispatch, and document every visit so recurring cleaning does not slip quietly past the next review.`,
   ];
 
   const nearMeIntro = `Searching for a nearby crew should not mean calling five contractors and still wondering who is qualified. We route licensed pump teams to your address with clear arrival windows, upfront scope, and documentation included in every visit. Tell us your kitchen type and location — we match you with the right specialist, confirm scope before we dispatch, and follow up with records you can keep on file. One call connects you to Canada-wide coverage with local response times that respect your schedule.`;
 
   const costIntro = `Planning trap maintenance is easier when you know what drives the visit. Labour, trap size, access difficulty, and how often you pump all affect scheduling — and skipping service usually costs more later in backups or downtime. This guide explains what a standard pump-out includes, how often kitchens like yours are typically serviced, and what to prepare before we arrive. Use it to plan ahead and book work that keeps your kitchen inspection-ready.`;
 
-  const rebateIntro = `Ontario fire-code inspections can feel overwhelming when requirements change and deadlines stack up. This guide walks building owners through what inspectors look for, how to prepare documentation, and where provincial programs may offset upgrade costs. We focus on practical steps — who to contact, what to gather, and how to sequence repairs — so you enter your review confident rather than reactive. Whether you manage a heritage property or a new commercial build, clear preparation saves time and avoids costly rework.`;
+  const rebateIntro = `Ontario municipalities and landlords often ask for proof that grease interceptors are maintained on schedule. This guide explains what documentation kitchens typically need, how pump records support inspections, and where provincial rebate or efficiency programs may apply to equipment upgrades. Practical steps — who to call, what to log, and how to sequence pumping — help you enter a review prepared rather than reactive.`;
 
   if (page.pageType === "City Service Page" && city) {
     return pick(cityIntros(city), seed);
@@ -116,17 +116,17 @@ export function buildBodySections(page: PageEntry): ContentSection[] {
       eyebrow: "What we do",
       title: pick(
         [
-          "Thorough on-site work you can trust",
-          "Inspection-ready from the first visit",
-          "Clear results, no guesswork",
+          "Pump, clean, and document",
+          "Kitchen-ready trap work",
+          "Clear pump records",
         ],
         seed,
       ),
       body: pick(
         [
-          `Our technicians arrive with calibrated equipment, current certifications, and a checklist built for ${family.toLowerCase()} work. We walk the property with your superintendent, test each required point, photograph deficiencies, and tag compliant equipment before we leave. You receive a written summary the same day — not a vague invoice line item weeks later.`,
-          `Every visit follows a documented process: scope confirmation, on-site testing, deficiency notes, and a signed report. We explain what passed, what needs attention, and recommended timelines so you can prioritize repairs without panic. Property managers use our records for insurance renewals, tenant communications, and internal maintenance planning.`,
-          `We treat your building like our own reputation depends on it — because it does. Equipment is tested to applicable standards, access issues are noted respectfully, and your team gets a plain-language debrief before we pack up. No upselling scare tactics; just honest findings and a path to compliance.`,
+          `Crews arrive with vacuum equipment sized for interceptors and under-sink traps. We confirm access with your kitchen lead, pump waste safely, scrape surfaces that need attention, and log volumes removed. You receive pump notes the same visit — not a one-line invoice weeks later.`,
+          `Each job follows a simple flow: confirm scope, protect the work area, pump and clean, then review findings with your manager. We flag slow drainage, missing covers, or sizing issues that could cause the next backup. Records support health reviews and landlord reporting.`,
+          `We focus on keeping the line open and the trap compliant — no scare tactics about impossible deadlines. Technicians explain what they pumped, what condition the trap was in, and when the next service fits your volume.`,
         ],
         seed + 1,
       ),
@@ -136,14 +136,14 @@ export function buildBodySections(page: PageEntry): ContentSection[] {
       id: "who-we-serve",
       eyebrow: "Who we serve",
       title: pick(
-        ["Built for busy property teams", "Commercial and multi-residential focus", "Owners who need clarity fast"],
+        ["Built for commercial kitchens", "Restaurants, hotels, commissaries", "Operators who need clear records"],
         seed + 2,
       ),
       body: pick(
         [
-          "Office towers, retail plazas, warehouses, schools, condos, and mixed-use developments — if people occupy the building, we have likely serviced one like it. We coordinate with facility managers, respond to insurance-driven deadlines, and adapt to after-hours access when tenants cannot be disrupted.",
-          "Our clients include national REITs, independent landlords, restaurant groups, and institutional facilities. What they share is a need for reliable scheduling, consistent technicians, and reports that satisfy fire officials without extra back-and-forth.",
-          "Whether you oversee one address or dozens, you get a single point of contact, confirmed visit windows, and standardized reporting across your portfolio. That consistency makes audit season manageable instead of chaotic.",
+          "Full-service restaurants, QSR chains, hotels, stadium concessions, commissaries, and institutional kitchens — if grease goes down the line, we have likely pumped a trap like yours. We work with chefs, facility managers, and landlords who need after-hours access when the floor cannot stop.",
+          "Our clients include independent operators, franchise groups, and multi-unit portfolios. They need predictable pump schedules, consistent crews, and documentation that satisfies health inspectors without extra back-and-forth.",
+          "One coordinator can align several locations on the same service calendar. Standardized pump records make it easier to see which traps are current and which sites need catch-up before review season.",
         ],
         seed + 3,
       ),
@@ -155,9 +155,9 @@ export function buildBodySections(page: PageEntry): ContentSection[] {
       title: pick(["Three steps to done", "Simple scheduling, serious standards", "From call to completed report"], seed + 4),
       body: pick(
         [
-          `Call ${PHONE_NUMBER} and tell us your building type, square footage, and preferred timing. We confirm scope and pricing, dispatch a certified technician, and deliver your report electronically. Most clients book recurring annual visits so nothing slips past the next inspection cycle.`,
-          "Share your address and last inspection date — we handle the rest. A coordinator confirms access details, the technician completes on-site work, and you receive documentation within one business day. Need urgent support? Ask about expedited scheduling in your area.",
-          "Start with a conversation, not a contract. We review what your building requires under current codes, propose a visit date that fits your operations, and follow up with actionable next steps if anything needs repair or replacement.",
+          `Call ${PHONE_NUMBER} with your city, kitchen type, and whether the trap is backing up or due for maintenance. We confirm scope, assign a pump crew, and send records after the visit. Many clients set recurring intervals so traps do not slip past health or lease requirements.`,
+          "Share your address and last pump date — we handle scheduling. A coordinator confirms access and trap location; the crew pumps, cleans, and documents the visit. For overflow, say so upfront so we prioritize urgency.",
+          "Start with a short conversation. We explain what the visit includes, propose a window that fits prep hours, and note any repairs or sizing issues that should be handled separately.",
         ],
         seed + 5,
       ),
@@ -198,17 +198,17 @@ export function buildFaqs(page: PageEntry): FaqItem[] {
     [
       {
         question: "How soon can you visit my building?",
-        answer: `Most clients receive a confirmed window within a few business days. Tell us your address and urgency when you call ${PHONE_NUMBER} — we prioritize failed inspections and insurance deadlines.`,
+        answer: `Most areas receive a confirmed pump window within a few business days. Tell us your address and whether the trap is backing up when you call ${PHONE_NUMBER} — overflow and kitchen shutdowns are prioritized ahead of routine cleaning.`,
       },
       {
         question: "What should I prepare before the technician arrives?",
         answer:
-          "Unlock mechanical rooms, clear access to panels and equipment, and gather previous inspection reports if available. Your superintendent or facility contact should be on-site for the first 15 minutes to walk the route.",
+          "Clear access to the trap and floor drains, note any recent backups, and have your last pump record handy if available. A kitchen or facilities contact should meet the crew for the first few minutes to show trap location and operating hours.",
       },
       {
         question: "Do you provide documentation for inspectors and insurers?",
         answer:
-          "Yes. Every visit includes a written report with test results, deficiencies, photos where relevant, and recommended follow-up dates. Most clients store reports digitally and print copies for audit binders.",
+          "Yes. Every visit includes pump records with volumes, condition notes, and recommended follow-up dates. Most kitchens store them digitally and print copies for health or landlord reviews.",
       },
       {
         question: "Can you service multiple buildings on one contract?",
@@ -219,7 +219,7 @@ export function buildFaqs(page: PageEntry): FaqItem[] {
     [
       {
         question: "How often does my building need this work?",
-        answer: `Most ${family} programs follow annual cycles, though some equipment or jurisdictions require semi-annual or monthly checks. We review your last report and local requirements to recommend the right interval.`,
+        answer: `Most commercial kitchens pump interceptors on a recurring schedule — often monthly to quarterly depending on fry volume and local rules. We review your last pump record and usage to suggest a realistic interval.`,
       },
       {
         question: "What happens if something fails during the visit?",
@@ -229,7 +229,7 @@ export function buildFaqs(page: PageEntry): FaqItem[] {
       {
         question: "Are your technicians certified?",
         answer:
-          "Our field team holds current certifications relevant to fire and life-safety systems across Canadian jurisdictions. Credentials are available on request for property managers preparing audit packages.",
+          "Our pump crews follow sanitary waste handling practices appropriate for grease interceptors and kitchen waste. Ask your coordinator for documentation needed for your property or health review.",
       },
       {
         question: "Do you work after hours or weekends?",

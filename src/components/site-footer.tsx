@@ -31,7 +31,7 @@ export function SiteFooter() {
               >
                 <span className="material-symbols-outlined text-secondary-fixed text-[18px]">call</span>
                 <span>
-                  {PHONE_NUMBER} (24/7)
+                  {PHONE_NUMBER}
                 </span>
               </a>
             </div>

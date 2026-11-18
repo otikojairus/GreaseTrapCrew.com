@@ -7,13 +7,14 @@ import {
   StitchEmergencyBand,
   StitchFaqSection,
   StitchHero,
-  StitchPhoneCta,
+  StitchContactSection,
   StitchSectionHeading,
   StitchShell,
   StitchTicker,
   SECTION_ICON,
 } from "@/components/stitch-ui";
 import type { ContentSection } from "@/lib/page-content";
+import { ServiceRequestForm } from "@/components/service-request-form";
 
 type LinkItem = { href: string; label: string };
 type TrustPoint = { title: string; description: string; icon: ContentSection["icon"] };
@@ -188,7 +189,19 @@ export function HomeStitchView({
 
       <StitchEmergencyBand />
       <StitchFaqSection faqs={faqs} />
-      <StitchPhoneCta />
+      <StitchContactSection
+        title="Scheduled service or urgent overflow"
+        description="Call for an active backup. Use the form for cleaning, pumping, or maintenance — we'll match urgency and location to the right crew."
+        form={
+          <ServiceRequestForm
+            pageSlug="/"
+            pageType="Home"
+            defaultIssueType="scheduled_cleaning"
+            defaultUrgency="this_week"
+            defaultLocation=""
+          />
+        }
+      />
     </StitchShell>
   );
 }

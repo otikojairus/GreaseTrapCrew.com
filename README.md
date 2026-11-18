@@ -39,6 +39,18 @@ npm start
 
 Set `NEXT_PUBLIC_SITE_URL` for canonical URLs in production.
 
+## Lead intake (Bitrix — same as proofresponse-mainsite)
+
+Forms POST to `/api/service-request`, map to `canada_urban_callback_v1` when a page slug is present, and forward to:
+
+`{BITRIX_MIDDLEWARE_URL}/webhooks/inbound/website/form`
+
+Copy `BITRIX_MIDDLEWARE_URL` and `WEBSITE_INTAKE_SECRET` from proofresponse-mainsite (or your telnyx-driver deployment). See `.env.example`.
+
+`GET /api/service-request` returns `{ enabled: true }` when intake is configured.
+
+**Asset baseline (T02):** `https://greasetrapcrew.com` — 624 static pSEO routes; pillars include `/grease-trap-cleaning` and `/emergency-grease-trap-cleaning`.
+
 ## Phone / CTA
 
 Default click-to-call: **1-888-473-2737** (`src/lib/greasetrap.ts`). Update there and re-run `generate-pages.py` if you change the script default CTA string.
